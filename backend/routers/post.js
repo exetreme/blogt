@@ -1,6 +1,12 @@
 const router = require("express").Router();
 
+const { searchPost } = require("../controllers/post");
+const { uploadImage } = require("../controllers/post");
+const { getRelatedPosts } = require("../controllers/post");
+const { getFeaturedPosts } = require("../controllers/post");
+const { getPosts } = require("../controllers/post");
 const { createPost } = require("../controllers/post");
+const { getPost } = require("../controllers/post");
 const { updatePost } = require("../controllers/post");
 const { deletePost } = require("../controllers/post");
 const multer = require("../middlewares/multer");
@@ -25,5 +31,11 @@ router.put(
   updatePost
 );
 router.delete("/:postId", deletePost);
+router.get("/single/:slug", getPost);
+router.get("/featured-posts", getFeaturedPosts);
+router.get("/posts", getPosts);
+router.get("/search", searchPost);
+router.get("/related-posts/:postId", getRelatedPosts);
+router.post("/upload-image", multer.single("image"), uploadImage);
 
 module.exports = router;
