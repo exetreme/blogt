@@ -211,6 +211,8 @@ exports.searchPost = async (req, res) => {
       slug: post.slug,
       thumbnail: post.thumbnail?.url,
       author: post.author,
+      createdAt: post.createdAt,
+      tags: post.tags,
     })),
   });
 };

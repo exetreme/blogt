@@ -3,7 +3,7 @@ import dateFormat from 'dateformat'
 import {Link} from 'react-router-dom'
 import {BsPencilSquare, BsTrash} from 'react-icons/bs'
 
-export default function PostCard({post}) {
+export default function PostCard({post,onDeleteClick}) {
   if (!post) 
     return null
   const {
@@ -32,6 +32,7 @@ export default function PostCard({post}) {
         </button>
 
         <button
+          onClick={onDeleteClick}
           className='w8 h8 rounded-full bg-pink-400 hover:bg-blue-600 flex justify-center text-white'><BsTrash/></button>
       </div>
     </div>
